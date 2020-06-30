@@ -63,13 +63,7 @@ public class HdfsFileRemover {
 
                     logger.info("Purge Process for the " + jsonArray.get(i) + " started at " + new Timestamp(System.currentTimeMillis()) + "\n");
                     String path = jsonArray.get(i).findPath(PurgeProperties.getJsonconfigHdfspatharrayVariable()).asText();
-                    Float retention = Float.parseFloat(jsonArray.get(i).findPath(PurgeProperties.getJsonconfigHdfspatharrayRetention()).asText());
-//                    if(hdfsPathValidation.isPathValid(path)){
-//                        deleteFilesFromPath(fs, path, retention);
-//                    }else{
-//                        logger.error("****************PURGE PROCESS ABANDONED FOR THE INPUT PATH " + path + "***************************** \n");
-//                        hdfsPathValidation.printErrorMessage();
-//                    }
+                    Float retention = Float.parseFloat(jsonArray.get(i).findPath(PurgeProperties.getJsonconfigHdfspatharrayRetention()).asText());                  
                     deleteFilesFromPath(fs,path,retention);
 
                 }
